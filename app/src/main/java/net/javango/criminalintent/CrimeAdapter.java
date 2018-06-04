@@ -1,6 +1,7 @@
 package net.javango.criminalintent;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +15,9 @@ import java.util.List;
 
 public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder> {
 
-    Context mContext;
+    private Context mContext;
     private List<Crime> mCrimes;
-
+    private int mCurrentPosition = -1;
 
     public CrimeAdapter(Context context,  List<Crime> crimes) {
         mCrimes = crimes;
@@ -66,7 +67,13 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(mContext, mCrime.getTitle() + " clicked!", Toast.LENGTH_SHORT).show();
+            mCurrentPosition = getAdapterPosition();
+            Intent intent = CrimeActivity.newIntent(mContext, mCrime.getId());
+            mContext.startActivity(intent);
         }
+    }
+
+    public int getCurrentPosition() {
+        return mCurrentPosition;
     }
 }
