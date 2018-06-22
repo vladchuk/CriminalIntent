@@ -68,7 +68,7 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
         @Override
         public void onClick(View v) {
             mCurrentPosition = getAdapterPosition();
-            Intent intent = CrimeActivity.newIntent(mContext, mCrime.getId());
+            Intent intent = CrimePagerActivity.newIntent(mContext, mCrime.getId());
             mContext.startActivity(intent);
         }
     }
