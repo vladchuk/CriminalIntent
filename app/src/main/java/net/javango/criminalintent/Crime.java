@@ -1,5 +1,6 @@
 package net.javango.criminalintent;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -43,4 +44,8 @@ public class Crime {
         mSolved = solved;
     }
 
+    public String getFormattedDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM d, yyyy");
+        return dateFormat.format(mDate);
+    }
 }
