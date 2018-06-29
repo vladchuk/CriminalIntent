@@ -61,8 +61,10 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(getActivity(), crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
-            int position = mAdapter.getCurrentPosition();
-            mAdapter.notifyItemChanged(position);
+//            int position = mAdapter.getCurrentPosition();
+//            mAdapter.notifyItemChanged(position);
+            mAdapter.setCrimes(crimes);
+            mAdapter.notifyDataSetChanged();
         }
         updateSubtitle();
     }

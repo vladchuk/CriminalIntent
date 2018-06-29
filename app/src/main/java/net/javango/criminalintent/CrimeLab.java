@@ -1,5 +1,6 @@
 package net.javango.criminalintent;
 
+import android.content.ContentValues;
 import android.content.Context;
 
 import java.util.ArrayList;
@@ -11,7 +12,6 @@ import java.util.UUID;
 public class CrimeLab {
 
     private static CrimeLab sCrimeLab;
-    private Map<UUID, Crime> mCrimes;
 
     public static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
@@ -21,20 +21,23 @@ public class CrimeLab {
     }
 
     private CrimeLab(Context context) {
-        mCrimes = new LinkedHashMap<>();
     }
 
     public List<Crime> getCrimes() {
-        return new ArrayList(mCrimes.values());
+        return CriminalIntent.crimeDao().fetchAll();
     }
 
     public Crime getCrime(UUID id) {
-        return mCrimes.get(id);
+        String sid = id.toString();
+        return CriminalIntent.crimeDao().getCrime(sid);
     }
 
-    public void addCrime(Crime c) {
-        mCrimes.put(c.getId(), c);
+    public void addCrime(Crime crime) {
+        CriminalIntent.crimeDao().addCrime(crime);
     }
 
+    public void updateCrime(Crime crime) {
+        CriminalIntent.crimeDao().updateCrime(crime);
+    }
 
 }

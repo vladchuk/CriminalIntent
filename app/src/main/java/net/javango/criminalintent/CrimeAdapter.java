@@ -19,7 +19,7 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
     private List<Crime> mCrimes;
     private int mCurrentPosition = -1;
 
-    public CrimeAdapter(Context context,  List<Crime> crimes) {
+    public CrimeAdapter(Context context, List<Crime> crimes) {
         mCrimes = crimes;
         mContext = context;
     }
@@ -76,4 +76,9 @@ public class CrimeAdapter extends RecyclerView.Adapter<CrimeAdapter.CrimeHolder>
     public int getCurrentPosition() {
         return mCurrentPosition;
     }
+
+    public void setCrimes(List<Crime> crimes) {
+        mCrimes = crimes;
+    }
+
 }
