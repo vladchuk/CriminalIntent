@@ -7,7 +7,7 @@ import android.content.Context;
 
 import net.javango.criminalintent.Crime;
 
-@Database(entities = {Crime.class}, version = 1)
+@Database(entities = {Crime.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static final String NAME = "CRIME_DB";
@@ -17,6 +17,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase create(Context context) {
         return Room.databaseBuilder(context, AppDatabase.class, NAME)
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build();
     }
 

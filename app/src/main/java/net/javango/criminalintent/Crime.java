@@ -22,6 +22,7 @@ public class Crime {
     private String title;
     private Date date;
     private boolean solved;
+    private String mSuspect;
 
     public Crime() {
         id = UUID.randomUUID();
@@ -59,6 +60,15 @@ public class Crime {
     public void setSolved(boolean solved) {
         this.solved = solved;
     }
+
+    public String getSuspect() {
+        return mSuspect;
+    }
+
+    public void setSuspect(String suspect) {
+        mSuspect = suspect;
+    }
+
 
     public String getFormattedDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM d, yyyy");
