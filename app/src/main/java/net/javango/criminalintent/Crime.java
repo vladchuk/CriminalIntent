@@ -74,4 +74,9 @@ public class Crime {
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, MMM d, yyyy");
         return dateFormat.format(date);
     }
+
+    public String getPhotoFilename() {
+        return "IMG_" + getId().toString() + ".jpg";
+    }
+
 }

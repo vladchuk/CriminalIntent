@@ -2,6 +2,7 @@ package net.javango.criminalintent;
 
 import android.content.Context;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -46,6 +47,11 @@ public class CrimeLab {
     public void deleteCrime(Crime crime) {
         CriminalIntent.crimeDao().deleteCrime(crime);
         crimes.remove(crime.getId());
+    }
+
+    public File getPhotoFile(Crime crime) {
+        File filesDir = CriminalIntent.getContext().getFilesDir();
+        return new File(filesDir, crime.getPhotoFilename());
     }
 
 }
